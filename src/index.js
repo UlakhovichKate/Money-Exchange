@@ -6,29 +6,31 @@ module.exports = function makeExchange(currency) {
 		results.error="You are rich, my friend! We don't have so much coins for exchange";
 		return results;
 	}
-    
+    if (currency<=0){
+	return results;
+	}
   		var H=currency/50|0;
-  		var ost1=currency%50;
-        if (currency/50 !=0){
+  		var currency=currency%50;
+        if (H!=0){
             results.H=H;
         }
-  		var Q=ost1/25|0;
-  		var ost2=ost1%25;
-        if (ost1!=0){
+  		var Q=currency/25|0;
+  		var currency=currency%25;
+        if (Q!=0){
             results.Q=Q;
         }
-  		var D=ost2/10|0;
-  		var ost3=ost2%10;
-        if (ost2!=0){
+  		var D=currency/10|0;
+  		var currency=currency%10;
+        if (D!=0){
             results.D=D;
         }
-  		var N=ost3/5|0;
-  		ost4=ost3%5;
-        if (ost3!=0){
-            result.N=N;
+  		var N=currency/5|0;
+			currency=currency%5;
+        if (N!=0){
+            results.N=N;
         }
-  		var P=ost4;
-        if (ost4!=0){
+  		var P=currency%5;
+        if (P!=0){
             results.P=P;
         }
   		
